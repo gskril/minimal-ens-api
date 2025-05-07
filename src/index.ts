@@ -9,7 +9,7 @@ type Bindings = {
 const app = new Hono<{ Bindings: Bindings }>()
 
 app.get('/:name', async ({ req, env }) => {
-  const name = req.query('name')
+  const name = req.param('name')
 
   // Rough validation
   if (!name || name.length < 4 || !name.includes('.')) {
